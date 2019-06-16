@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--表示当前服务名称-->
+    <dubbo:application name="dubbo-server" owner="lance"/>
+
+    <!--配置dubbo选择的注册中心-->
+    <dubbo:registry address="N/A"/>
+
+    <!--服务对外提供端口-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--配置服务接口  指向实现类-->
+    <dubbo:service interface="com.lance.server.UserService" ref="userService"/>
+
+    <bean id="userService" class="com.lance.server.UserServiceImpl"></bean>
+
+</beans>
