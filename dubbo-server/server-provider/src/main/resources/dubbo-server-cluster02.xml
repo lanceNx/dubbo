@@ -4,11 +4,18 @@
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <!--实例名称-->
-    <dubbo:application name="dubbo-client" owner="lance"/>
+    <!--表示当前服务名称-->
+    <dubbo:application name="dubbo-server" owner="lance"/>
 
-    <!--注册中心-->
+    <!--配置dubbo选择的注册中心-->
     <dubbo:registry address="zookeeper://47.99.223.159:2181"/>
 
-    <dubbo:reference id="userService" interface="com.lance.server.UserService" />
+    <!--服务对外提供端口-->
+    <dubbo:protocol name="dubbo" port="20881"/>
+
+    <!--配置服务接口  指向实现类-->
+    <dubbo:service interface="com.lance.server.UserService" ref="userService"/>
+
+    <bean id="userService" class="com.lance.server.UserServiceImpl02"></bean>
+
 </beans>

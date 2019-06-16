@@ -8,8 +8,11 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("dubbo-client.xml");
-        UserService userService = (UserService) context.getBean("userService");
-        System.out.println(userService.sayHello("Lance"));
+        for (int i = 0; i < 10; i++) {
+            UserService userService = (UserService) context.getBean("userService");
+            System.out.println(userService.sayHello("Lance"));
+        }
+
         System.in.read();
     }
 }
