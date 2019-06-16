@@ -8,7 +8,7 @@
     <dubbo:application name="dubbo-client" owner="lance"/>
 
     <!--注册中心-->
-    <dubbo:registry address="N/A" id="zk"/>
+    <dubbo:registry address="zookeeper://47.99.223.159:2181"/>
 
     <dubbo:protocol port="20880"/>
 
